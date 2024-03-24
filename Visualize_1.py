@@ -66,6 +66,6 @@ print(fft_mag_z)
 
 visualize_data(x, y, z, 1)
 
-visualize_data(fft_ij_x, fft_ij_y, fft_ij_z, 1)
+visualize_data(fft_mag_x, fft_mag_y, fft_mag_z, 1)
 
 
