@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
+# plt.ion()
 
 def fft_data(data):
     """
@@ -51,7 +51,7 @@ def visualize_data(x, y, z, sps, plot_type, fig, axs):
 
     plt.tight_layout()
 
-    plt.pause(0.1)
+    plt.pause(0.01)
     fig.canvas.flush_events()
 
     # plt.show()
