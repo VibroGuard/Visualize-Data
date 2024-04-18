@@ -21,16 +21,17 @@ def visualize_data(x, y, z, sps, plot_type, fig, axs):
     :param sps samples per second:
     :return: plots the data
     """
+
     # fig, axs = plt.subplots(1, 3, figsize=(15, 5))
     names = ["x - axis", "y - axis", "z - axis"]
 
     if plot_type == "time":
         for i, ax in enumerate(axs[0]):
-            # plt.clf()
+            ax.clear()
             data = [x, y, z][i]
             time = len(data) / sps  # time = number of samples / samples per second
             horizontal_axis = np.linspace(0, time, len(data))
-            ax.stem(horizontal_axis, data)
+            ax.plot(horizontal_axis, data)
 
             ax.set_title(names[i])
 
@@ -38,7 +39,7 @@ def visualize_data(x, y, z, sps, plot_type, fig, axs):
             ax.set_ylabel('Magnitude')
     elif plot_type == "frequency":
         for i, ax in enumerate(axs[1]):
-            plt.clf()
+            ax.clear()
             data = [x, y, z][i]
             horizontal_axis = np.linspace(int(-sps / 2), int(sps / 2), len(data))
             ax.stem(horizontal_axis, data[int(np.ceil(len(data) / 2)) + 1:] + data[:int(np.ceil(len(data) / 2)) + 1])
@@ -50,6 +51,6 @@ def visualize_data(x, y, z, sps, plot_type, fig, axs):
 
     plt.tight_layout()
 
-    plt.pause(0.1)
-    # fig.canvas.flush_events()
+    # plt.pause(0.1)
+    fig.canvas.flush_events()
     # plt.show()

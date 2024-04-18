@@ -49,8 +49,8 @@ if (port is not None):
     else:
         print("Serial port: " + port + " cannot be opened.")
 
-    num_samples = 64  # This should match with the number of samples taken by the MCU.
-    sampling_frequency = 10
+    num_samples = 512  # This should match with the number of samples taken by the MCU.
+    sampling_frequency = 100
 
     x_data = [0] * num_samples
     y_data = [0] * num_samples
@@ -72,15 +72,19 @@ if (port is not None):
         # print(y_data)
         # print(z_data)
         #
-        # fft_ij_x, fft_mag_x = fft_data(x_data)
-        # fft_ij_y, fft_mag_y = fft_data(y_data)
-        # fft_ij_z, fft_mag_z = fft_data(z_data)
+        fft_ij_x, fft_mag_x = fft_data(x_data)
+        fft_ij_y, fft_mag_y = fft_data(y_data)
+        fft_ij_z, fft_mag_z = fft_data(z_data)
         # #     print(fft_mag_x)
         # #     print(fft_mag_y)
         # #     print(fft_mag_z)
         #
+
+        # if received_data is not None:
         visualize_data(x_data, y_data, z_data, sampling_frequency, "time", fig, axs)
         #
-        # visualize_data(fft_mag_x, fft_mag_y, fft_mag_z, sampling_frequency, "frequency", fig, axs)
+        visualize_data(fft_mag_x, fft_mag_y, fft_mag_z, sampling_frequency, "frequency", fig, axs)
+
+            # received_data = None
 else:
     print("Port not found.")
