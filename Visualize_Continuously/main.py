@@ -68,9 +68,9 @@ if (port is not None):
         elif received_data == "z":
             fill_buffer("z", num_samples)
 
-        # print(x_data)
-        # print(y_data)
-        # print(z_data)
+        print(x_data)
+        print(y_data)
+        print(z_data)
         #
         fft_ij_x, fft_mag_x = fft_data(x_data)
         fft_ij_y, fft_mag_y = fft_data(y_data)

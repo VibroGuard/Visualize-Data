@@ -51,6 +51,7 @@ def visualize_data(x, y, z, sps, plot_type, fig, axs):
 
     plt.tight_layout()
 
-    # plt.pause(0.1)
+    plt.pause(0.1)
     fig.canvas.flush_events()
+
     # plt.show()
