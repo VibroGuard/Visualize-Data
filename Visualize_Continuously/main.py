@@ -49,12 +49,12 @@ if (port is not None):
     else:
         print("Serial port: " + port + " cannot be opened.")
 
-    num_samples = 256  # This should match with the number of samples taken by the MCU.
-    sampling_frequency = 100
+    num_samples = 512  # This should match with the number of samples taken by the MCU.
+    sampling_frequency = 250
 
-    x_data = [0] * num_samples
-    y_data = [0] * num_samples
-    z_data = [0] * num_samples
+    x_data = [0.0] * num_samples
+    y_data = [0.0] * num_samples
+    z_data = [0.0] * num_samples
 
     fig, axs = plt.subplots(2, 3, figsize=(15, 5))
 
@@ -67,6 +67,21 @@ if (port is not None):
             fill_buffer("y", num_samples)
         elif received_data == "z":
             fill_buffer("z", num_samples)
+
+        # with open("x_data.txt", "at") as x_data_file:
+        #     for x in x_data:
+        #         x_data_file.write(str(x))
+        #         x_data_file.write(" ")
+        #
+        # with open("y_data.txt", "at") as y_data_file:
+        #     for y in y_data:
+        #         y_data_file.write(str(y))
+        #         y_data_file.write(" ")
+        #
+        # with open("z_data.txt", "at") as z_data_file:
+        #     for z in z_data:
+        #         z_data_file.write(str(z))
+        #         z_data_file.write(" ")
 
         print(x_data)
         print(y_data)
